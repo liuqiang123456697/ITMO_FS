@@ -32,11 +32,11 @@ def mutual_information(x, y):           #互信息
     return entropy(y) - conditional_entropy(x, y)
 
 
-def conditional_mutual_information(x, y, z):  #特征互补性
+def conditional_mutual_information(x, y, z):  #条件互信息    条件互信息-互信息是特征互补性衡量的值，看自己写的那个函数
     return entropy(list(zip(x, z))) + entropy(list(zip(y, z))) - entropy(list(zip(x, y, z))) - entropy(z)
 
 
-def joint_mutual_information(x, y, z):      #联合互信息？
+def joint_mutual_information(x, y, z):      #联合互信息？ JMI
     return mutual_information(x, z) + conditional_mutual_information(y, z, x)
 
 
