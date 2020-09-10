@@ -28,15 +28,15 @@ def matrix_mutual_information(x, y):
     return np.apply_along_axis(mutual_information, 0, x, y)
 
 
-def mutual_information(x, y):
+def mutual_information(x, y):           #互信息
     return entropy(y) - conditional_entropy(x, y)
 
 
-def conditional_mutual_information(x, y, z):
+def conditional_mutual_information(x, y, z):  #特征互补性
     return entropy(list(zip(x, z))) + entropy(list(zip(y, z))) - entropy(list(zip(x, y, z))) - entropy(z)
 
 
-def joint_mutual_information(x, y, z):
+def joint_mutual_information(x, y, z):      #联合互信息？
     return mutual_information(x, z) + conditional_mutual_information(y, z, x)
 
 
